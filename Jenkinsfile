@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git'
-            }
+                git branch: 'main',
+                    url: 'https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git'
         }
 
         stage('Build') {
