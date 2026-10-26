@@ -195,7 +195,110 @@ Problem:
 The build command used the incorrect npm script name.
 
 Console Output:
-<Paste the actual error message here>
+<Branch indexing
+ > git.exe rev-parse --resolve-git-dir C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\caches\git-97c5d962b734107237c3e473e23b9cc9\.git # timeout=10
+Setting origin to https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git
+ > git.exe config remote.origin.url https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.5'
+ > git.exe config --get remote.origin.url # timeout=10
+ > git.exe fetch --no-tags --force --progress -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Seen branch in repository origin/main
+Seen 1 remote branch
+Obtained Jenkinsfile from 1ada0fca268cd2a74c336d8711f47903850df5b9
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.5'
+ > git.exe fetch --no-tags --force --progress -- https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking out Revision 1ada0fca268cd2a74c336d8711f47903850df5b9 (main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 1ada0fca268cd2a74c336d8711f47903850df5b9 # timeout=10
+Commit message: "Fix Jenkinsfile syntax"
+ > git.exe rev-list --no-walk 53dd9a7008bd2b6e1e4139a155fad5299b637164 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git # timeout=10
+Fetching upstream changes from https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.5'
+ > git.exe fetch --tags --force --progress -- https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision 1ada0fca268cd2a74c336d8711f47903850df5b9 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 1ada0fca268cd2a74c336d8711f47903850df5b9 # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe checkout -b main 1ada0fca268cd2a74c336d8711f47903850df5b9 # timeout=10
+Commit message: "Fix Jenkinsfile syntax"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] bat
+
+C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main>npm install 
+
+up to date, audited 1 package in 234ms
+
+found 0 vulnerabilities
+[Pipeline] bat
+
+C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main>npm run biuld 
+npm error Missing script: "biuld"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: C:\Users\U S E R\AppData\Local\npm-cache\_logs\2026-10-26T20_11_18_536Z-debug-0.log
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+Stage "Test" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+Stage "Deploy to Production" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE>
 
 Fix:
 Changed npm run biuld to npm run build.
