@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/username/nonexistent-repo.git'
+                git 'https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git'
             }
         }
 
