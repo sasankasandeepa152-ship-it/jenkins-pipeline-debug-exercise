@@ -312,7 +312,126 @@ Problem:
 The Jenkinsfile printed the DB_PASSWORD environment variable.
 
 Evidence:
-<Record what appeared in Console Output, without including any real secret>
+<Branch indexing
+ > git.exe rev-parse --resolve-git-dir C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\caches\git-97c5d962b734107237c3e473e23b9cc9\.git # timeout=10
+Setting origin to https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git
+ > git.exe config remote.origin.url https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git # timeout=10
+Fetching origin...
+Fetching upstream changes from origin
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.5'
+ > git.exe config --get remote.origin.url # timeout=10
+ > git.exe fetch --no-tags --force --progress -- origin +refs/heads/*:refs/remotes/origin/* # timeout=10
+Seen branch in repository origin/main
+Seen 1 remote branch
+Obtained Jenkinsfile from dd0e072c2628a1fd7a9c673372dc5532e63ad456
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git # timeout=10
+Fetching without tags
+Fetching upstream changes from https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.5'
+ > git.exe fetch --no-tags --force --progress -- https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+Checking out Revision dd0e072c2628a1fd7a9c673372dc5532e63ad456 (main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f dd0e072c2628a1fd7a9c673372dc5532e63ad456 # timeout=10
+Commit message: "Fix bug 3 - build command"
+ > git.exe rev-list --no-walk 1ada0fca268cd2a74c336d8711f47903850df5b9 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git # timeout=10
+Fetching upstream changes from https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.5'
+ > git.exe fetch --tags --force --progress -- https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/main^{commit}" # timeout=10
+Checking out Revision dd0e072c2628a1fd7a9c673372dc5532e63ad456 (refs/remotes/origin/main)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f dd0e072c2628a1fd7a9c673372dc5532e63ad456 # timeout=10
+ > git.exe branch -a -v --no-abbrev # timeout=10
+ > git.exe branch -D main # timeout=10
+ > git.exe checkout -b main dd0e072c2628a1fd7a9c673372dc5532e63ad456 # timeout=10
+Commit message: "Fix bug 3 - build command"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] bat
+
+C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main>npm install 
+
+up to date, audited 1 package in 211ms
+
+found 0 vulnerabilities
+[Pipeline] bat
+
+C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main>npm run build 
+
+> jenkins-pipeline-debug-exercise@1.0.0 build
+> node build.js
+
+Build completed successfully.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] bat
+
+C:\Users\U S E R\AppData\Local\Jenkins\.jenkins\workspace\ins-pipeline-debug-exercise_main>npm test 
+
+> jenkins-pipeline-debug-exercise@1.0.0 test
+> node --test test.js
+
+✔ add returns the sum of two numbers (0.4589ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 53.2578
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy to Production)
+[Pipeline] echo
+Deploying...
+[Pipeline] echo
+Using password: null
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS>
 
 Fix:
 Removed the command that printed the password.

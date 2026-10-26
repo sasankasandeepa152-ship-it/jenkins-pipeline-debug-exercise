@@ -33,7 +33,7 @@ pipeline {
 
             steps {
                 echo 'Deploying...'
-                echo "Using password: ${env.DB_PASSWORD}"
+                
             }
         }
     }
