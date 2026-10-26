@@ -6,10 +6,11 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
+         stage('Checkout') {
             steps {
                 git branch: 'main',
                     url: 'https://github.com/sasankasandeepa152-ship-it/jenkins-pipeline-debug-exercise.git'
+            }
         }
 
         stage('Build') {
